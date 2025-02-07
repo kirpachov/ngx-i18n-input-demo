@@ -5,9 +5,9 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   selector: 'app-custom-input',
   template: `
 
-  (START
-  <input [formControl]="control" >
-  END)
+  <div style="padding: 10px;" class="shining-background">
+    <input [formControl]="control">
+  </div>
 
   `,
   providers: [
@@ -16,6 +16,22 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
       useExisting: forwardRef(() => CustomInputComponent),
       multi: true
     }
+  ],
+  styles: [
+    `@keyframes shine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .shining-background {
+      width: 100%;
+      // height: 100vh;
+      background: linear-gradient(270deg, #ff00ff, #ffcc00, #00ffff, #ff3300, #00ff00, #3300ff);
+      background-size: 400% 400%;
+      animation: shine 6s ease infinite;
+    }
+    `
   ]
 })
 export class CustomInputComponent implements ControlValueAccessor {
