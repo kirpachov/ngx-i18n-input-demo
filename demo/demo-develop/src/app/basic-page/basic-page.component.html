@@ -41,3 +41,14 @@
   <ngx-i18n-input [(ngModel)]="translatedText2"></ngx-i18n-input>
   <pre [innerText]="translatedText2 | json"></pre>
 </div>
+
+
+<div class="input-section">
+  <h3>Using a custom input component instead of a input tag</h3>
+  <ng-template #customInputTemplate let-all>
+    <app-custom-input [formControl]="all.control" ></app-custom-input>
+  </ng-template>
+
+  <ngx-i18n-input [inputTemplate]="customInputTemplate" [(ngModel)]="translatedText2"></ngx-i18n-input>
+  <pre [innerText]="translatedText2 | json"></pre>
+</div>
