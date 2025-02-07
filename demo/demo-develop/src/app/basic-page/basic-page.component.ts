@@ -16,4 +16,5 @@ export class BasicPageComponent {
   translatedText1: Record<string, string> | null = null;
   translatedText2: Record<string, string> | null = null;
   translatedText3: Record<string, string> | null = null;
+  translatedText4: Record<string, string> | null = null;
 }
