@@ -1,1 +1,4 @@
 demo/**/dist-libs
+demo/**/node_modules
+demo/**/dist
+demo/**/coverage

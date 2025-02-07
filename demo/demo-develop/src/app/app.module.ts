@@ -7,6 +7,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { BasicPageModule } from './basic-page/basic-page.module';
 import { NgxI18nInputModule } from 'dist-libs/ngx-i18n-input';
 import { CustomInputModule } from './custom-input/custom-input.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CustomInputModule } from './custom-input/custom-input.module';
     AppRoutingModule,
     BasicPageModule,
     CustomInputModule,
+    RouterModule,
     NgxI18nInputModule.forRoot({
       availableLangs: ["mario", "it", "en"],
     })
