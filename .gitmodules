@@ -1,0 +1,3 @@
+[submodule "ngx-i18n-input"]
+	path = ngx-i18n-input
+	url = git@github.com:kirpachov/ngx-i18n-input.git
