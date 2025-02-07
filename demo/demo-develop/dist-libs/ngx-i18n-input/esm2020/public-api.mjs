@@ -1,7 +1,0 @@
-/*
- * Public API Surface of ngx-i18n-input
- */
-// export * from './lib/ngx-i18n-input.service';
-export * from './lib/ngx-i18n-input.component';
-export * from './lib/ngx-i18n-input.module';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3dvcmtzcGFjZS9wcm9qZWN0cy9uZ3gtaTE4bi1pbnB1dC9zcmMvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUVILGdEQUFnRDtBQUNoRCxjQUFjLGdDQUFnQyxDQUFDO0FBQy9DLGNBQWMsNkJBQTZCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIG5neC1pMThuLWlucHV0XG4gKi9cblxuLy8gZXhwb3J0ICogZnJvbSAnLi9saWIvbmd4LWkxOG4taW5wdXQuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtaTE4bi1pbnB1dC5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbmd4LWkxOG4taW5wdXQubW9kdWxlJztcbiJdfQ==
