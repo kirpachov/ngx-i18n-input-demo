@@ -1,0 +1,9 @@
+<h1>ngx-i18n-input demo</h1>
+
+<ul>
+  <ng-container *ngFor="let page of routes">
+    <li>
+      <a [routerLink]="page.url">{{ page.title }}</a>
+    </li>
+  </ng-container>
+</ul>

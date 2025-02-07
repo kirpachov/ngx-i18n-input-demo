@@ -1,0 +1,43 @@
+<h1>Basic form with title and description</h1>
+
+<form [formGroup]="form">
+  <div class="input-section">
+    <h3>All default values</h3>
+
+    <ngx-i18n-input formControlName="name"></ngx-i18n-input>
+
+    <pre [innerText]="form.value.name | json"></pre>
+  </div>
+
+  <div class="input-section">
+    <h3>Custom templates for both title and label</h3>
+
+    <ng-template #titleInputTemplate let-configs>
+      <textarea id="title" [formControl]="configs.control"></textarea>
+    </ng-template>
+
+    <ng-template #titleLabelTemplate let-configs>
+      <label for="title">{{configs.language}}</label>
+    </ng-template>
+
+    <ngx-i18n-input [labelTemplate]="titleLabelTemplate" [inputTemplate]="titleInputTemplate" formControlName="title">
+      
+    </ngx-i18n-input>
+
+    <pre [innerText]="form.value.title | json"></pre>
+  </div>
+</form>
+
+<div class="input-section">
+  <h3>Using ngModel</h3>
+  <ngx-i18n-input [(ngModel)]="translatedText1"></ngx-i18n-input>
+  <pre [innerText]="translatedText1 | json"></pre>
+</div>
+
+<div class="input-section">
+  <h3>Using same ngModel for two inputs</h3>
+  <ngx-i18n-input [(ngModel)]="translatedText2"></ngx-i18n-input>
+  <hr>
+  <ngx-i18n-input [(ngModel)]="translatedText2"></ngx-i18n-input>
+  <pre [innerText]="translatedText2 | json"></pre>
+</div>

@@ -1,0 +1,31 @@
+{
+  "name": "ngx-i18n-input",
+  "version": "0.0.0-watch+1738930972943",
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2015/ngx-i18n-input.mjs",
+  "es2020": "fesm2020/ngx-i18n-input.mjs",
+  "esm2020": "esm2020/ngx-i18n-input.mjs",
+  "fesm2020": "fesm2020/ngx-i18n-input.mjs",
+  "fesm2015": "fesm2015/ngx-i18n-input.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/ngx-i18n-input.mjs",
+      "es2020": "./fesm2020/ngx-i18n-input.mjs",
+      "es2015": "./fesm2015/ngx-i18n-input.mjs",
+      "node": "./fesm2015/ngx-i18n-input.mjs",
+      "default": "./fesm2020/ngx-i18n-input.mjs"
+    }
+  }
+}
