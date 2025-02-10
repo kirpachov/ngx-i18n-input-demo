@@ -11,6 +11,35 @@
   <pre [innerText]="translatedText4 | json"></pre>
 </div>
 
+
+<div class="input-section">
+  <h3>Tabs layout but without labels</h3>
+  <ngx-i18n-input
+    [(ngModel)]="translatedText4"
+    [hideLabels]="true"
+    [layout]="'tabs'"
+    #tabsNoLabels
+    ></ngx-i18n-input>
+
+    <ng-container *ngFor="let lang of (tabsNoLabels.availableLangs$ | async)">
+      <button type="button" (click)="tabsNoLabels.focusInput(lang)">Focus {{ lang }} </button>
+    </ng-container>
+
+  <pre [innerText]="translatedText4 | json"></pre>
+</div>
+
+
+<div class="input-section">
+  <h3>Vertical layout but without labels</h3>
+  <ngx-i18n-input
+    [(ngModel)]="translatedText4"
+    [hideLabels]="true"
+    [layout]="'vertical'"
+    ></ngx-i18n-input>
+
+  <pre [innerText]="translatedText4 | json"></pre>
+</div>
+
 <form [formGroup]="form">
   <div class="input-section">
     <h3>All default values</h3>
