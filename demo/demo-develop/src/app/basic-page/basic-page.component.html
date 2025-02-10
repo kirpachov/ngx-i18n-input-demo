@@ -13,6 +13,49 @@
 
 
 <div class="input-section">
+  <h3>Languages different from global configs</h3>
+  <ngx-i18n-input
+    [(ngModel)]="translatedText5"
+    [languages]="['de', 'es']"
+    [layout]="'tabs'"
+    ></ngx-i18n-input>
+
+  <pre [innerText]="translatedText5 | json"></pre>
+</div>
+
+<div class="input-section">
+  <h3>Custom input: arrays</h3>
+
+  <ng-template #arrayInput let-all>
+    <app-array-input [formControl]="all.control"></app-array-input>
+  </ng-template>
+
+  <ngx-i18n-input
+    [inputTemplate]="arrayInput"
+    [(ngModel)]="translatedArray1"
+    [layout]="'tabs'"
+    ></ngx-i18n-input>
+
+  <pre [innerText]="translatedArray1 | json"></pre>
+
+  <div class="input-section">
+    <h3>Custom input: arrays v2: same formControl as above</h3>
+  
+    <ng-template #arrayInput let-all>
+      <app-array-input [formControl]="all.control"></app-array-input>
+    </ng-template>
+  
+    <ngx-i18n-input
+      [inputTemplate]="arrayInput"
+      [(ngModel)]="translatedArray1"
+      [layout]="'vertical'"
+      ></ngx-i18n-input>
+  
+    <pre [innerText]="translatedArray1 | json"></pre>
+  </div>
+</div>
+
+<div class="input-section">
   <h3>Tabs layout but without labels</h3>
   <ngx-i18n-input
     [(ngModel)]="translatedText4"

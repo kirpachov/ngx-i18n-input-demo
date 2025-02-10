@@ -1,0 +1,6 @@
+<ng-container *ngFor="let _ of array; index as index; trackBy: trackByFn">
+  <div style="display: block;">
+    <input [disabled]="isDisabled" [ngModel]="array[index]" (ngModelChange)="changed(index, $event)">
+    <button type="button" (click)="addAfter(index)">Add</button>
+  </div>
+</ng-container>

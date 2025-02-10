@@ -4,6 +4,7 @@ import { BasicPageComponent } from './basic-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxI18nInputModule } from 'dist-libs/ngx-i18n-input';
 import { CustomInputModule } from "../custom-input/custom-input.module";
+import { ArrayInputModule } from "../array-input/array-input.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CustomInputModule } from "../custom-input/custom-input.module";
     ReactiveFormsModule,
     NgxI18nInputModule,
     FormsModule,
-    CustomInputModule
+    CustomInputModule,
+    ArrayInputModule
 ],
   exports: [
     BasicPageComponent
