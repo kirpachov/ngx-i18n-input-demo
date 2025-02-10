@@ -1,0 +1,55 @@
+<h1>
+  Playground
+</h1>
+
+<div class="input-section">
+  <ngx-i18n-input
+    [(ngModel)]="translatedText"
+    [layout]="configs.value.layout!"
+    [required]="configs.value.required!"
+    [autofocus]="configs.value.autofocus!"
+    [validators]="validatorOptions[configs.value.validators!]"
+    #input
+  ></ngx-i18n-input>
+</div>
+
+
+<h3>Value:</h3>
+<pre [innerText]="translatedText | json"></pre>
+
+<h3>Settings:</h3>
+
+<form style="display: block; border: 1px solid; padding: 15px" [formGroup]="configs">
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Layout</span>
+    <select formControlName="layout">
+      <option value="vertical">Vertical</option>
+      <option value="tabs">Tabs</option>
+    </select>
+  </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Validators</span>
+    <select formControlName="validators">
+      <option [value]="0">None</option>
+      <option [value]="1">String must equal to 'a'</option>
+      <option [value]="2">String must be long 3 characters</option>
+    </select>
+  </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Required</span>
+    <input type="checkbox" formControlName="required">
+  </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >autofocus</span>
+    <input type="checkbox" formControlName="autofocus">
+  </div>
+</form>
+
+<p>In case settings do not reflect, you can reload the page to reload the component with that inputs. </p>
+
+
+<!-- <h3>Settings values:</h3>
+<pre [innerText]="configs.value | json"></pre> -->

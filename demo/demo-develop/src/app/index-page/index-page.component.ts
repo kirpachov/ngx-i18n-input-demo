@@ -9,5 +9,10 @@ export class IndexPageComponent {
   readonly routes: {url: string, title: string}[] = [{
     url: "basic",
     title: "Basic"
-  }];
+  },
+  {
+    url: "playground",
+    title: "Playground"
+  }
+];
 }

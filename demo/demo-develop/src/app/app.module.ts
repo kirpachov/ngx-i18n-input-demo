@@ -8,6 +8,7 @@ import { BasicPageModule } from './basic-page/basic-page.module';
 import { NgxI18nInputModule } from 'dist-libs/ngx-i18n-input';
 import { CustomInputModule } from './custom-input/custom-input.module';
 import { RouterModule } from '@angular/router';
+import { PlaygroundModule } from './playground/playground.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     BasicPageModule,
+    PlaygroundModule,
     CustomInputModule,
     RouterModule,
     NgxI18nInputModule.forRoot({
