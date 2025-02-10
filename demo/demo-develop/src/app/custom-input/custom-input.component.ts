@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
   template: `
 
   <div style="padding: 10px;" class="shining-background">
-    <input [formControl]="control">
+    <input [id]="inputId" [formControl]="control">
   </div>
 
   `,
@@ -37,6 +37,8 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 export class CustomInputComponent implements ControlValueAccessor {
 
   readonly control = new FormControl();
+
+  @Input() inputId: string = Math.random().toString(36).substring(2);
 
   writeValue(obj: any): void {
     this.control.setValue(obj);

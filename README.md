@@ -12,5 +12,6 @@ Serve with `ng s` and check out the component.
 | command | output |
 | --- | --- |
 | npx -v | 10.2.3 |
+| npx nf --version | 3.0.1 |
 | node -v | v20.10.0 |
 | npm -v | 10.2.3 |
