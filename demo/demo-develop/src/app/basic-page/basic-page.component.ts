@@ -20,4 +20,8 @@ export class BasicPageComponent {
   translatedText5: Record<string, string> | null = null;
 
   translatedArray1: Record<string, string[]> | null = null;
+
+  log(...args: unknown[]): void {
+    console.log(...args);
+  }
 }

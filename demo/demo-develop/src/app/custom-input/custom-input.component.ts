@@ -41,15 +41,15 @@ export class CustomInputComponent implements ControlValueAccessor {
   @Input() inputId: string = Math.random().toString(36).substring(2);
 
   writeValue(obj: any): void {
-    this.control.setValue(obj);
+    this.control.setValue(obj, { emitEvent: false });
   }
 
   registerOnChange(fn: any): void {
-    this.control.valueChanges.subscribe(fn);
+    this.control.valueChanges.subscribe({next: (v: unknown) => fn(v)});
   }
 
   registerOnTouched(fn: any): void {
-    this.control.valueChanges.subscribe(fn);
+    this.control.valueChanges.subscribe({next: (v: unknown) => fn(v)});
   }
 
   setDisabledState(isDisabled: boolean): void {
