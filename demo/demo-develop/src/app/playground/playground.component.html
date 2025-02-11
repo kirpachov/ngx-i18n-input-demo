@@ -4,6 +4,7 @@
 
 <div class="input-section">
   <ngx-i18n-input
+    [label]="configs.value.label!"
     [labelTemplate]="labelTemplates[configs.value.labelTemplate ?? 0]"
     [inputTemplate]="inputTemplates[configs.value.inputTemplate ?? 0]"
     [languages]="configs.value.languages!"
@@ -86,6 +87,11 @@
       <option [value]="0">Default (null)</option>
       <option [value]="1">Show details label</option>
     </select>
+  </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Label (str)</span>
+    <input formControlName="label" >
   </div>
 
   <div style="display: flex; align-items: center">

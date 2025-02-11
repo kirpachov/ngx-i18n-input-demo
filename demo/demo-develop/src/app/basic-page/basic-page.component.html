@@ -64,7 +64,7 @@
     #tabsNoLabels
     ></ngx-i18n-input>
 
-    <ng-container *ngFor="let lang of (tabsNoLabels.availableLangs$ | async)">
+    <ng-container *ngFor="let lang of (tabsNoLabels.availableLangs)">
       <button type="button" (click)="tabsNoLabels.focusInput(lang)">Focus {{ lang }} </button>
     </ng-container>
 

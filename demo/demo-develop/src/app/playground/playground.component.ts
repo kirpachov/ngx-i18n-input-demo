@@ -23,6 +23,7 @@ export class PlaygroundComponent implements OnInit {
     languages: FormControl<string[] | null>,
     inputTemplate: FormControl<number | null>,
     labelTemplate: FormControl<number | null>,
+    label: FormControl<string | null>,
   }> = new FormGroup<{
     layout: FormControl<"tabs" | "vertical" | null>,
     required: FormControl<boolean | null>,
@@ -32,6 +33,7 @@ export class PlaygroundComponent implements OnInit {
     languages: FormControl<string[] | null>,
     inputTemplate: FormControl<number | null>,
     labelTemplate: FormControl<number | null>,
+    label: FormControl<string | null>,
   }>({
     layout: new FormControl<"tabs" | "vertical">(this.route.snapshot.queryParams["layout"] || "tabs"),
     required: new FormControl<boolean>(this.route.snapshot.queryParams["required"] === "true"),
@@ -41,6 +43,7 @@ export class PlaygroundComponent implements OnInit {
     languages: new FormControl<string[]>(this.route.snapshot.queryParams["languages"]?.split(",") || ["en", "it", "es", "de"]),
     inputTemplate: new FormControl<number | null>(this.route.snapshot.queryParams["inputTemplate"] || null),
     labelTemplate: new FormControl<number | null>(this.route.snapshot.queryParams["labelTemplate"] || null),
+    label: new FormControl<string | null>(this.route.snapshot.queryParams["label"] || null),
   });
 
   ngOnInit(): void {
