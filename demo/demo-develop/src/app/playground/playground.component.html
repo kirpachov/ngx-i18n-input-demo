@@ -4,6 +4,10 @@
 
 <div class="input-section">
   <ngx-i18n-input
+    [labelTemplate]="labelTemplates[configs.value.labelTemplate ?? 0]"
+    [inputTemplate]="inputTemplates[configs.value.inputTemplate ?? 0]"
+    [languages]="configs.value.languages!"
+    [hideLabels]="configs.value.hideLabels!"
     [(ngModel)]="translatedText"
     [layout]="configs.value.layout!"
     [required]="configs.value.required!"
@@ -38,6 +42,53 @@
   </div>
 
   <div style="display: flex; align-items: center">
+
+    <ng-template #inputTemplate1 let-all>
+      <app-array-input [formControl]="all.control"></app-array-input>
+    </ng-template>
+    {{ addInputTemplate(inputTemplate1) }}
+
+    <ng-template #inputTemplate2 let-all>
+      <app-custom-input [formControl]="all.control" ></app-custom-input>
+    </ng-template>
+
+    {{ addInputTemplate(inputTemplate2) }}
+
+    <ng-template #inputTemplate3 let-all>
+      Some custom template: <input [formControl]="all.control" >
+    </ng-template>
+
+    {{ addInputTemplate(inputTemplate3) }}
+
+    <span style="margin-right: 10px;" >Input template</span>
+    <select formControlName="inputTemplate">
+      <option [value]="0">Default (null)</option>
+      <option [value]="1">app-array-input</option>
+      <option [value]="2">app-custom-input</option>
+      <option [value]="3">Custom</option>
+    </select>
+  </div>
+
+
+  <div style="display: flex; align-items: center">
+
+    <ng-template #labelTemplate1 let-all>
+        lang={{all.language}}<br>
+        stringify lang={{ all.stringify(all.language) }}<br>
+        valid={{all.control.valid}}<br>
+        touched={{all.control.touched}}
+    </ng-template>
+    {{ addLabelTemplate(labelTemplate1) }}
+
+
+    <span style="margin-right: 10px;" >Label template</span>
+    <select formControlName="labelTemplate">
+      <option [value]="0">Default (null)</option>
+      <option [value]="1">Show details label</option>
+    </select>
+  </div>
+
+  <div style="display: flex; align-items: center">
     <span style="margin-right: 10px;" >Required</span>
     <input type="checkbox" formControlName="required">
   </div>
@@ -46,9 +97,21 @@
     <span style="margin-right: 10px;" >autofocus</span>
     <input type="checkbox" formControlName="autofocus">
   </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Hide labels</span>
+    <input type="checkbox" formControlName="hideLabels">
+  </div>
+
+  <div style="display: flex; align-items: center">
+    <span style="margin-right: 10px;" >Languages</span>
+    <app-array-input formControlName="languages"></app-array-input>
+  </div>
+
+  <button (click)="reloadCurrentPage()">Reload</button>
 </form>
 
-<p>In case settings do not reflect, you can reload the page to reload the component with that inputs. </p>
+<p>In case settings do not reflect, you can <a style="text-decoration: underline;" (click)="reloadCurrentPage()" >reload the page</a> to reload the component with that inputs. </p>
 
 
 <!-- <h3>Settings values:</h3>

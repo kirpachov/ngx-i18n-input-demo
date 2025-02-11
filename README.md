@@ -1,12 +1,12 @@
 # Demo ngx-i18n-input
 
-Demo for component `@kirpachov/ngx-i18n-input`
+Component `@kirpachov/ngx-i18n-input`
 
-Serve with `ng s` and check out the component.
+Serve with `ng s -o` when inside a demo folder (`cd demo/demo-develop/`) and check out the component.
 
 ## Development
 - Update `ng-package.json` and set `dest` to where you want the bundle to be put. May be `../../../demo/demo-develop/dist-libs/ngx-i18n-input`.
-- run `npx nf start` and let Foreman run
+- run `npx nf start` to see and edit the component and the demo
 
 ## Versions
 | command | output |

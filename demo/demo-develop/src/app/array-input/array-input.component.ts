@@ -16,7 +16,6 @@ import { Observable } from 'rxjs';
 })
 export class ArrayInputComponent implements ControlValueAccessor {
 
-
   isDisabled: boolean = false;
   array: string[] = [
     ""
@@ -56,6 +55,11 @@ export class ArrayInputComponent implements ControlValueAccessor {
 
   changed(index: number, value: string): void {
     this.array[index] = value;
+    this.emitChanges();
+  }
+
+  removeAt(index: number) {
+    this.array.splice(index, 1);
     this.emitChanges();
   }
 

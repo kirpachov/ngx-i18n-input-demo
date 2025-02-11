@@ -2,5 +2,6 @@
   <div style="display: block;">
     <input [disabled]="isDisabled" [ngModel]="array[index]" (ngModelChange)="changed(index, $event)">
     <button type="button" (click)="addAfter(index)">Add</button>
+    <button type="button" (click)="removeAt(index)">Delete</button>
   </div>
 </ng-container>
