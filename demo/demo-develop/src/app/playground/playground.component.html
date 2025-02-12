@@ -43,23 +43,17 @@
   </div>
 
   <div style="display: flex; align-items: center">
-
-    <ng-template #inputTemplate1 let-all>
+    <ng-template #inputTemplateOption let-all>
       <app-array-input [formControl]="all.control"></app-array-input>
     </ng-template>
-    {{ addInputTemplate(inputTemplate1) }}
 
-    <ng-template #inputTemplate2 let-all>
+    <ng-template #inputTemplateOption let-all>
       <app-custom-input [formControl]="all.control" ></app-custom-input>
     </ng-template>
 
-    {{ addInputTemplate(inputTemplate2) }}
-
-    <ng-template #inputTemplate3 let-all>
+    <ng-template #inputTemplateOption let-all>
       Some custom template: <input [formControl]="all.control" >
     </ng-template>
-
-    {{ addInputTemplate(inputTemplate3) }}
 
     <span style="margin-right: 10px;" >Input template</span>
     <select formControlName="inputTemplate">
@@ -70,17 +64,13 @@
     </select>
   </div>
 
-
   <div style="display: flex; align-items: center">
-
-    <ng-template #labelTemplate1 let-all>
+    <ng-template #labelTemplateOption let-all>
         lang={{all.language}}<br>
         stringify lang={{ all.stringify(all.language) }}<br>
         valid={{all.control.valid}}<br>
         touched={{all.control.touched}}
     </ng-template>
-    {{ addLabelTemplate(labelTemplate1) }}
-
 
     <span style="margin-right: 10px;" >Label template</span>
     <select formControlName="labelTemplate">

@@ -23,7 +23,7 @@ import { PlaygroundModule } from './playground/playground.module';
     CustomInputModule,
     RouterModule,
     NgxI18nInputModule.forRoot({
-      availableLangs: ["mario", "it", "en"],
+      availableLangs: ["it", "en", "de", "es"],
     })
   ],
   providers: [],

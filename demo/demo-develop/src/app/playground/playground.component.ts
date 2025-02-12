@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, Query, QueryList, TemplateRef, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,6 +11,9 @@ export class PlaygroundComponent implements OnInit {
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
   private readonly router: Router = inject(Router);
   private readonly cd: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+  @ViewChildren("inputTemplateOption") inputTemplatesRef?: QueryList<TemplateRef<unknown>>;
+  @ViewChildren("labelTemplateOption") labelTemplatesRef?: QueryList<TemplateRef<unknown>>;
 
   translatedText: any;
 
@@ -43,7 +46,7 @@ export class PlaygroundComponent implements OnInit {
     languages: new FormControl<string[]>(this.route.snapshot.queryParams["languages"]?.split(",") || ["en", "it", "es", "de"]),
     inputTemplate: new FormControl<number | null>(this.route.snapshot.queryParams["inputTemplate"] || null),
     labelTemplate: new FormControl<number | null>(this.route.snapshot.queryParams["labelTemplate"] || null),
-    label: new FormControl<string | null>(this.route.snapshot.queryParams["label"] || null),
+    label: new FormControl<string | null>(this.route.snapshot.queryParams["label"] || ""),
   });
 
   ngOnInit(): void {
@@ -63,6 +66,16 @@ export class PlaygroundComponent implements OnInit {
         queryParams: merged,
         queryParamsHandling: "merge",
       });
+    });
+  }
+
+  ngAfterViewInit(): void {
+    this.inputTemplatesRef?.forEach((template: TemplateRef<unknown>, index: number) => {
+      this.inputTemplates.push(template);
+    });
+
+    this.labelTemplatesRef?.forEach((template: TemplateRef<unknown>, index: number) => {
+      this.labelTemplates.push(template);
     });
   }
 
@@ -86,14 +99,5 @@ export class PlaygroundComponent implements OnInit {
 
   detectChanges(): void {
     this.cd.detectChanges();
-  }
-
-  addInputTemplate(ref: TemplateRef<unknown>): void {
-    this.inputTemplates.push(ref);
-  }
-
-
-  addLabelTemplate(ref: TemplateRef<unknown>): void {
-    this.labelTemplates.push(ref);
   }
 }

@@ -1,5 +1,6 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { AbstractControl, ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgxI18nInputContext, NGX_I18N_INPUT_CONTEXT, isNgxI18nInputContext } from "dist-libs/ngx-i18n-input";
 
 @Component({
   selector: 'app-custom-input',
@@ -36,7 +37,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class CustomInputComponent implements ControlValueAccessor {
 
-  readonly control = new FormControl();
+  control: FormControl = new FormControl();
 
   @Input() inputId: string = Math.random().toString(36).substring(2);
 
@@ -45,11 +46,11 @@ export class CustomInputComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
-    this.control.valueChanges.subscribe({next: (v: unknown) => fn(v)});
+    this.control.valueChanges.subscribe({ next: (v: unknown) => fn(v) });
   }
 
   registerOnTouched(fn: any): void {
-    this.control.valueChanges.subscribe({next: (v: unknown) => fn(v)});
+    this.control.valueChanges.subscribe({ next: (v: unknown) => fn(v) });
   }
 
   setDisabledState(isDisabled: boolean): void {
@@ -59,5 +60,19 @@ export class CustomInputComponent implements ControlValueAccessor {
       this.control.enable();
     }
   }
-  
+
+  private readonly context: NgxI18nInputContext | null = inject(NGX_I18N_INPUT_CONTEXT, { optional: true });
+  ngOnInit(): void {
+    // this.context.registerInput(this);
+
+    if (this.context) {
+      this.control.valueChanges.subscribe({ next: (v: unknown) => this.context?.control.setValue(v) });
+      if (isNgxI18nInputContext(this.context)) {
+        // this.context.control.setValue('ciao');
+        // this.control = this.context.control;
+      }
+      // else { console.warn("invalid context", this.context); }
+    }
+  }
+
 }

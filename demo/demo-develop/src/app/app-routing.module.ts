@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'playground',
     component: PlaygroundComponent
+  },
+  {
+    path: `w-custom-component`,
+    loadComponent: () => import('./w-custom-component/w-custom-component.component').then(m => m.WCustomComponentComponent)
   }
 ];
 

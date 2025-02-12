@@ -13,6 +13,10 @@ export class IndexPageComponent {
   {
     url: "playground",
     title: "Playground"
+  },
+  {
+    url: "w-custom-component",
+    title: "With Custom Component"
   }
 ];
 }
